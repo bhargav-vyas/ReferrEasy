@@ -10,23 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tka.ServiceImpl.UserServiceImpl;
 import com.tka.entity.User;
 import com.tka.service.UserService;
 @RestController
 @RequestMapping("/api/users")
 public class usercontroller {
 	@Autowired 
-	private UserService userService;
+	private UserServiceImpl userServiceImpl;
 	
 	@PostMapping("/resister")
 	public ResponseEntity<String> resisterUser(@RequestBody User user){
-		userService.resisterUser(user);
+		userServiceImpl.resisterUser(user);
 		return ResponseEntity.ok("User resistered Sucessfully!");
 		
 	}
 	@GetMapping("/{id}")
 	 public ResponseEntity<User> getUserById(@PathVariable Long id){
-		User user= userService.getUserById(id);
+		User user= userServiceImpl.getUserById(id);
 		return ResponseEntity.ok(user);
 	}
 	
