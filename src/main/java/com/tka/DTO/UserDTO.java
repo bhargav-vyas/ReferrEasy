@@ -2,6 +2,8 @@ package com.tka.DTO;
 
 import java.util.Objects;
 
+import com.tka.entity.User;
+
 public class UserDTO {
 	private Long id;
 	private String  username;
@@ -15,6 +17,9 @@ public class UserDTO {
 		this.id = id;
 		this.username = username;
 		this.email = email;
+	}
+	public UserDTO(User user) {
+		// TODO Auto-generated constructor stub
 	}
 	public Long getId() {
 		return id;
