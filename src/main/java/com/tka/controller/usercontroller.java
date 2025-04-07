@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,7 +31,19 @@ public class usercontroller {
 		User user= userServiceImpl.getUserById(id);
 		return ResponseEntity.ok(user);
 	}
+	@PostMapping("/login")
+	public ResponseEntity<String> loginUser(@RequestParam String username,@RequestParam String password){
+		boolean isLoggenIn =	userServiceImpl.loginUser(username,password);
+		if (isLoggenIn) {
+			return ResponseEntity.ok("Login successful!");
+			
+		}else {
+		return ResponseEntity.status(401).body("Invalid credentials!");
+		
+	}
+	
 	
 	
 
+}
 }
