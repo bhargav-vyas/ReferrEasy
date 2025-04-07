@@ -16,7 +16,8 @@ public class UserServiceImpl {
 	}
 
 	public User getUserById(Long id) {
-		return userRepository.getById(id);
+		return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 	}
 
 }

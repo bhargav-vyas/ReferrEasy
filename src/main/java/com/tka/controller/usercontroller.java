@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tka.DTO.UserDTO;
 import com.tka.ServiceImpl.UserServiceImpl;
 import com.tka.entity.User;
 import com.tka.service.UserService;
@@ -27,9 +26,9 @@ public class usercontroller {
 		
 	}
 	@GetMapping("/{id}")
-	 public ResponseEntity<UserDTO> getUserById(@PathVariable Long id){
+	 public ResponseEntity<User> getUserById(@PathVariable Long id){
 		User user= userServiceImpl.getUserById(id);
-		return ResponseEntity.ok(new UserDTO(user));
+		return ResponseEntity.ok(user);
 	}
 	
 	
