@@ -3,6 +3,10 @@ package com.tka.Security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,10 +19,10 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/public/**").permitAll() // public endpoints
-                .anyRequest().authenticated() // all others require auth
+                .requestMatchers("/api/public/**").permitAll()
+                .anyRequest().authenticated()
             )
-            .httpBasic(); // using basic auth
+            .httpBasic();
 
         return http.build();
     }
@@ -26,5 +30,16 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+        UserDetails user = User.builder()
+            .username("admin")
+            .password(passwordEncoder.encode("admin123"))
+            .roles("USER")
+            .build();
+
+        return new InMemoryUserDetailsManager(user);
     }
 }
