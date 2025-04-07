@@ -16,8 +16,7 @@ public class UserServiceImpl {
 	}
 
 	public User getUserById(Long id) {
-		
-		return null;
+		return userRepository.getById(id);
 	}
 
 }
