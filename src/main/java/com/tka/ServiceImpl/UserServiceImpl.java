@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.tka.entity.User;
 import com.tka.repository.UserRepository;
 
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserServiceImpl {
 	@Autowired   UserRepository  userRepository ;

@@ -2,6 +2,8 @@ package com.tka.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,7 +24,8 @@ public class User {
 	 private String username;
 	  private String password;
 	  private String role;
-	  @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL)
+	  @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL ,fetch = FetchType.LAZY)
+	  @JsonIgnore
 	  private List<Referral> Referals;
 
 }
