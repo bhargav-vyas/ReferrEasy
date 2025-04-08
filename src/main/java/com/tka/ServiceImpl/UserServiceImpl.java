@@ -22,7 +22,7 @@ public class UserServiceImpl {
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 	}
 	public boolean loginUser(String username, String password) {
-		Optional<User> optionalUser = userRepository.findByUserName(username);
+		Optional<User> optionalUser = userRepository.findByUsername(username);
 		if(optionalUser.isPresent()) {
 			User user = optionalUser.get();
 			return user.getPassword().equals(password);
