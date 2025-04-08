@@ -1,5 +1,7 @@
 package com.tka.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +34,8 @@ public class usercontroller {
 		return ResponseEntity.ok(user);
 	}
 	@PostMapping("/login")
-	public ResponseEntity<String> loginUser(@RequestParam String username,@RequestParam String password){
-		boolean isLoggenIn =	userServiceImpl.loginUser(username,password);
+	public ResponseEntity<?> loginUser(@RequestParam String username,@RequestParam String password){
+		Optional<User> user =userService.loginUser(user)
 		if (isLoggenIn) {
 			return ResponseEntity.ok("Login successful!");
 		}else {

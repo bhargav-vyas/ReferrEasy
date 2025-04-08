@@ -1,5 +1,6 @@
 package com.tka.ServiceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,10 @@ public class UserServiceImpl {
 		return userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 	}
-	public boolean loginUser(String username, String password) {
-		Optional<User> optionalUser = userRepository.findByUsername(username);
-		if(optionalUser.isPresent()) {
-			User user = optionalUser.get();
-			return user.getPassword().equals(password);
-		}
-		return false;
+	public List<User> loginUser(String username) {
+	    return userRepository.findByUsername(username);
 	}
+
+	
 
 }
