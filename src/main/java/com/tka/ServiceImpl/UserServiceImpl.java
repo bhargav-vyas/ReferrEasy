@@ -1,5 +1,7 @@
 package com.tka.ServiceImpl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,11 @@ public class UserServiceImpl {
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 	}
 	public boolean loginUser(String username, String password) {
-		// TODO Auto-generated method stub
+		Optional<User> optionalUser = userRepository.findByUserName(username);
+		if(optionalUser.isPresent()) {
+			User user = optionalUser.get();
+			return user.getPassword().equals(password);
+		}
 		return false;
 	}
 

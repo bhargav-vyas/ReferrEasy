@@ -36,10 +36,8 @@ public class usercontroller {
 		boolean isLoggenIn =	userServiceImpl.loginUser(username,password);
 		if (isLoggenIn) {
 			return ResponseEntity.ok("Login successful!");
-			
 		}else {
 		return ResponseEntity.status(401).body("Invalid credentials!");
-		
 	}
 	
 	
