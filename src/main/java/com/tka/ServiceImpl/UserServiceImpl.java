@@ -29,5 +29,6 @@ public class UserServiceImpl {
 			User user = optionalUser.get();
 			return user.getPassword().equals(userDTO);
 		}
+		return false;
 }
 }
