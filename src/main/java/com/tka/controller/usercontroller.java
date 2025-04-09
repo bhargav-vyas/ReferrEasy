@@ -1,5 +1,8 @@
 package com.tka.controller;
 
+import java.security.PublicKey;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,5 +43,9 @@ public class usercontroller {
 		}else {
 		return ResponseEntity.status(401).body("Invalid username or password!");
 	}
-}
-}
+		@GetMapping 
+		public ResponseEntity<List<User>> getAllUser(){
+		List<User> users =userServiceImpl.getAlluser();
+		return ResponseEntity.ok(users);
+		}
+		}
