@@ -33,16 +33,12 @@ public class usercontroller {
 		return ResponseEntity.ok(user);
 	}
 	@PostMapping("/login")
-	public ResponseEntity<String> loginUser(@RequestParam UserDTO userDTO){
+	public ResponseEntity<String> loginUser(@RequestBody UserDTO userDTO){
 		boolean isLoggenIn =	userServiceImpl.loginUser(userDTO);
 		if (isLoggenIn) {
 			return ResponseEntity.ok("Login successful!");
 		}else {
 		return ResponseEntity.status(401).body("Invalid username or password!");
 	}
-	
-	
-	
-
 }
 }
