@@ -44,7 +44,7 @@ public class usercontroller {
 		return ResponseEntity.status(401).body("Invalid username or password!");
 		}
 	}
-		@GetMapping 
+		@GetMapping("/getall")
 		public ResponseEntity<List<User>> getAllUser(){
 		List<User> users =userServiceImpl.getAlluser();
 		return ResponseEntity.ok(users);
