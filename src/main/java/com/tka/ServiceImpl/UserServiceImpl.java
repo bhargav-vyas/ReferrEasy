@@ -27,7 +27,7 @@ public class UserServiceImpl {
 		Optional<User> optionalUser = userRepository.findByUsername(userDTO.getUsername());
 		if(optionalUser.isPresent()) {
 			User user = optionalUser.get();
-			return user.getPassword().equals(userDTO);
+			return user.getPassword().equals(userDTO.getPassword());
 		}
 		return false;
 }
