@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,9 +45,15 @@ public class usercontroller {
 		return ResponseEntity.status(401).body("Invalid username or password!");
 		}
 	}
-		@GetMapping("/getall")
+		@GetMapping("/getall")//only admin can access
 		public ResponseEntity<List<User>> getAllUser(){
 		List<User> users =userServiceImpl.getAlluser();
 		return ResponseEntity.ok(users);
+		}
+		@DeleteMapping("/deletBy/{id}")
+		public ResponseEntity<String> deletById(@PathVariable Long id){
+			userServiceImpl.deletById(id);
+			return ResponseEntity.ok("User deleted successfully");
+			
 		}
 		}

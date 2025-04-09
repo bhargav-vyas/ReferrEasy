@@ -35,4 +35,8 @@ public class UserServiceImpl {
 	public List<User> getAlluser() {
 		return userRepository.findAll();
 	}
+	public void deletById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
 }
