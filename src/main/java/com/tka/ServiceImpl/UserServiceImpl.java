@@ -36,7 +36,7 @@ public class UserServiceImpl {
 		return userRepository.findAll();
 	}
 	public void deletById(Long id) {
-		// TODO Auto-generated method stub
+		 userRepository.deleteById(id);
 		
 	}
 }
