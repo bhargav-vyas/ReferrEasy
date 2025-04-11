@@ -25,7 +25,7 @@ public class Referral {
     private User user;
 	@ManyToOne
 	@JoinColumn(name ="job_id")
-	private job job;
+	private Job job;
 	private String referredEmail;
 	  private LocalDateTime referredAt;
 	  private String message;
