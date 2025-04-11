@@ -1,5 +1,7 @@
 package com.tka.ServiceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,10 @@ private Jobrepository jobrepository;
 	public Job createJob(Job job) {
 
 		return jobrepository.save(job);
+	}
+
+	public List<Job> getAlljob() {
+		return jobrepository.findAll();
 	}
 
 }
