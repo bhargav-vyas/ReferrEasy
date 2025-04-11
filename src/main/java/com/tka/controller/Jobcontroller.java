@@ -17,7 +17,7 @@ public class Jobcontroller {
 	private  JobServiceImpl jobServiceImpl;
 	
 
-	@PostMapping 
+	@PostMapping("/create")
 	public Job create(@RequestBody Job job) {
 		return jobServiceImpl.createJob(job);
 		
