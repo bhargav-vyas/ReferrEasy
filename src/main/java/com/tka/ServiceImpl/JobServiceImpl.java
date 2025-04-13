@@ -1,5 +1,6 @@
 package com.tka.ServiceImpl;
 
+import java.lang.classfile.ClassFile.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,11 @@ private Jobrepository jobrepository;
 
 	public Optional<Job> getjobById(Long id) {
 		return jobrepository.findById(id) ;
+	}
+
+	public Job updatejob(Long id, Job job) {
+		Option<JOb>
+		return null;
 	}
 
 }
