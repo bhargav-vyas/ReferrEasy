@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,8 +40,15 @@ public class Jobcontroller {
 		return jobServiceImpl.getjobById(id);
 	}
 	@PutMapping("/{id}")
-	public  Job updatejob(@PathVariable Long id , @RequestBody Job job) {
-		return jobServiceImpl.updatejob(id,job);
+	public  ResponseEntity<Job> updatejob(@PathVariable Long id , @RequestBody Job job) {
+		Job updatedJob =jobServiceImpl.updatejob(id,job);
+		if(updatedJob != null) {
+			return ResponseEntity.ok(updatedJob);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
+		
+		
 		
 	}
 	

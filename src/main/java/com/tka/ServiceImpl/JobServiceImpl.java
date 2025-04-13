@@ -27,11 +27,11 @@ private Jobrepository jobrepository;
 		return jobrepository.findById(id) ;
 	}
 
-	public Job updatejob(Long id, Job job) {
+	public Job updatejob(Long id, Job job,updatedJob) {
 		Optional<Job> optional = jobrepository.findById(id); 
 		if (optional.isPresent()){
 			Job existingJob = optional.get();
-			existingJob.setTitle(updatejob.getT);
+			existingJob.setTitle(updatedJob.getTitle());
 
 			
 		}
