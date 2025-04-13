@@ -28,7 +28,13 @@ private Jobrepository jobrepository;
 	}
 
 	public Job updatejob(Long id, Job job) {
-		Option<JOb>
+		Optional<Job> optional = jobrepository.findById(id); 
+		if (optional.isPresent()){
+			Job existingJob = optional.get();
+			existingJob.setTitle(updatejob.getT);
+
+			
+		}
 		return null;
 	}
 
