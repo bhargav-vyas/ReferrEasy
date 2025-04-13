@@ -1,6 +1,7 @@
 package com.tka.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +34,7 @@ public class Jobcontroller {
 		
 	}
 	@GetMapping("/{id}")
-	public Job getjobById(@PathVariable Long id) {
+	public Optional<Job> getjobById(@PathVariable Long id) {
 		return jobServiceImpl.getjobById(id);
 		
 	}
