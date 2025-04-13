@@ -30,5 +30,6 @@ public class Jobcontroller {
 		return jobServiceImpl.getAlljob();
 		
 	}
+	@GetMapping("/{id}")
 }
 	
