@@ -1,6 +1,7 @@
 package com.tka.ServiceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ private Jobrepository jobrepository;
 		return jobrepository.findAll();
 	}
 
-	public Job getjobById() {
-		return fin;
+	public Optional<Job> getjobById(Long id) {
+		return jobrepository.findById(id) ;
 	}
 
 }
