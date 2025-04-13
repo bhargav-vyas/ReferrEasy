@@ -21,4 +21,8 @@ private Jobrepository jobrepository;
 		return jobrepository.findAll();
 	}
 
+	public Job getjobById() {
+		return fin;
+	}
+
 }
