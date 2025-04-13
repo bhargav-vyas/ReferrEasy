@@ -27,15 +27,21 @@ private Jobrepository jobrepository;
 		return jobrepository.findById(id) ;
 	}
 
-	public Job updatejob(Long id, Job job,updatedJob) {
+	public Job updatejob(Long id, Job updatedJob) {
 		Optional<Job> optional = jobrepository.findById(id); 
 		if (optional.isPresent()){
 			Job existingJob = optional.get();
 			existingJob.setTitle(updatedJob.getTitle());
-
+			existingJob.setCompany(updatedJob.getCompany());
+			existingJob.setDescription(updatedJob.getDescription());
+			existingJob.setLocation(updatedJob.getLocation());
+			existingJob.setPostedDate(updatedJob.getPostedDate());
+			return jobrepository.save(existingJob);
+		}else {
+			return  null ;
 			
 		}
-		return null;
+	
 	}
 
 }
