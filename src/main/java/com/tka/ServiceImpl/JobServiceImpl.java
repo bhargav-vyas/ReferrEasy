@@ -47,7 +47,7 @@ private Jobrepository jobrepository;
 	}
 
 	public void deletjob(Long id) {
-		return jobrepository.deleteById(id);
+		jobrepository.deleteById(id);
 		
 	}
 
