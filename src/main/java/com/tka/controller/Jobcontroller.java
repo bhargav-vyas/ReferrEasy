@@ -54,6 +54,8 @@ public class Jobcontroller {
 	}
 	 @DeleteMapping("/{id}")
 	 public String deletedJob(@PathVariable Long id) {
+		 jobServiceImpl.deletjob(id);
+		 return "jobdeleted successsfully";
 		 
 	 }
 	
