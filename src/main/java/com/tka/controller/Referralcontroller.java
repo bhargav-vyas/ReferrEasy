@@ -1,6 +1,9 @@
 package com.tka.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,11 @@ public class Referralcontroller {
 	public String   createReferral(@RequestBody Referral referral) {
 		 referralServiceImpl.createReferral(referral);
 		 return "the referral is created";
+	}
+	@GetMapping("/getAllReferrals")
+	public List<Referral> getAllReferrals(){
+		return referralServiceImpl.getAllReferral();
+		
 	}
 }
   
