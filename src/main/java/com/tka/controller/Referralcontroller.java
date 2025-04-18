@@ -15,7 +15,7 @@ public class Referralcontroller {
 	@Autowired
 	private ReferralServiceImpl referralServiceImpl;
 	
-	@PostMapping
+	@PostMapping("/createReferral")
 	public String   createReferral(@RequestBody Referral referral) {
 		 referralServiceImpl.createReferral(referral);
 		 return "the referral is created";
