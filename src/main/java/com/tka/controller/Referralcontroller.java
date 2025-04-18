@@ -25,7 +25,7 @@ public class Referralcontroller {
 	}
 	@GetMapping("/getAllReferrals")
 	public List<Referral> getAllReferrals(){
-		return referralServiceImpl.getAllReferral();
+		return referralServiceImpl.getAllReferra();
 		
 	}
 }

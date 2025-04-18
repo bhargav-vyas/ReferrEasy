@@ -14,8 +14,7 @@ public class ReferralServiceImpl {
 	public Referral  createReferral(Referral referral) {
 		return referalrepositopryt.save(referral);
 	}
-
-	public List<Referral> getAllReferral() {
+	public List<Referral> getAllReferra() {
 		return referalrepositopryt.findAll();
 	}
 	
