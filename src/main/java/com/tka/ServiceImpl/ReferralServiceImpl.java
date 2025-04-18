@@ -17,6 +17,9 @@ public class ReferralServiceImpl {
 	public List<Referral> getAllReferra() {
 		return referalrepositopryt.findAll();
 	}
+	public Referral getReferraById(Long id) {
+		return referalrepositopryt.findById(id).orElse(null);
+	}
 	
 	
 }
