@@ -3,6 +3,7 @@ package com.tka.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.tka.entity.Application;
+import com.tka.entity.Job;
 import com.tka.entity.User;
 import com.tka.repository.ApplicationRepository;
 import com.tka.repository.Jobrepository;
@@ -19,7 +20,12 @@ public class ApplicationServiceImpl {
 	
 	
 	public Application applyToJob(Long userId, Long jobId) { 
-		User user = userRepository.findById(userId).orElseThrow(()-> new RuntimeException("")
+		User user = userRepository.findById(userId).orElseThrow(()-> new RuntimeException("user not found"));
+		Job job = jobrepository.findById(jobId).orElseThrow(() -> new RuntimeException("Job not found"));
+		return null;
+		
+		
+
 	}
 
 }
