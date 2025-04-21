@@ -33,7 +33,7 @@ public class ApplicationServiceImpl {
 	    Job job = jobrepository.findById(jobId)
 	        .orElseThrow(() -> new ResourceNotFoundException("Job not found with ID: " + jobId));
 
-	    // Create new application
+	    
 	    Application application = new Application();
 	    application.setUser(user);
 	    application.setJob(job);
