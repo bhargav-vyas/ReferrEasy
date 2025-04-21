@@ -29,7 +29,8 @@ public class ApplicationServiceImpl {
 	    User user = userRepository.findById(userId)
 	        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + userId));
 
-S	    Job job = jobrepository.findById(jobId)
+
+	    Job job = jobrepository.findById(jobId)
 	        .orElseThrow(() -> new ResourceNotFoundException("Job not found with ID: " + jobId));
 
 	    // Create new application
