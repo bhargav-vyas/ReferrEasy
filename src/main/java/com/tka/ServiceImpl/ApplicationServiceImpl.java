@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.tka.entity.Application;
@@ -12,7 +13,7 @@ import com.tka.entity.User;
 import com.tka.repository.ApplicationRepository;
 import com.tka.repository.Jobrepository;
 import com.tka.repository.UserRepository;
-
+@Service
 public class ApplicationServiceImpl {
 	@Autowired
 	private ApplicationRepository applicationRepository;
