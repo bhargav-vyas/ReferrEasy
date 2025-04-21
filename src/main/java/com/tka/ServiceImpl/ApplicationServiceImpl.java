@@ -1,5 +1,7 @@
 package com.tka.ServiceImpl;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.tka.entity.Application;
@@ -22,7 +24,12 @@ public class ApplicationServiceImpl {
 	public Application applyToJob(Long userId, Long jobId) { 
 		User user = userRepository.findById(userId).orElseThrow(()-> new RuntimeException("user not found"));
 		Job job = jobrepository.findById(jobId).orElseThrow(() -> new RuntimeException("Job not found"));
-		return null;
+		Application application = new Application();
+		application.setUser(user);
+		application.setJob(job);
+		application.setAppliedAt(LocalDateTime.now());
+		application.setStatus("pending");
+		return applicationRepository.save(application) ;
 		
 		
 
