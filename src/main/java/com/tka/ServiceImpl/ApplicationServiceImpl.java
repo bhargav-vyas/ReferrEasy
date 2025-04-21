@@ -27,13 +27,13 @@ public class ApplicationServiceImpl {
 	public Application applyToJob(Long userId, Long jobId) {
 
 	    User user = userRepository.findById(userId)
-	        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + userId));
+	        .orElseThrow();
 
 
 	    Job job = jobrepository.findById(jobId)
-	        .orElseThrow(() -> new ResourceNotFoundException("Job not found with ID: " + jobId));
+	        .orElseThrow();
 
-	    
+	    // Create new application
 	    Application application = new Application();
 	    application.setUser(user);
 	    application.setJob(job);
