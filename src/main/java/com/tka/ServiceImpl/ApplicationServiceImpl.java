@@ -24,18 +24,23 @@ public class ApplicationServiceImpl {
 	private Jobrepository jobrepository;
 	
 	
-	public Application applyToJob(Long userId, Long jobId) { 
-		User user = userRepository.findById(userId).orElseThrow(()-> new RuntimeException("user not found"));
-		Job job = jobrepository.findById(jobId).orElseThrow(() -> new RuntimeException("Job not found"));
-		Application application = new Application();
-		application.setUser(user);
-		application.setJob(job);
-		application.setAppliedAt(LocalDateTime.now());
-		application.setStatus("pending");
-		return applicationRepository.save(application) ;
-		
-		
+	public Application applyToJob(Long userId, Long jobId) {
 
+	    User user = userRepository.findById(userId)
+	        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + userId));
+
+S	    Job job = jobrepository.findById(jobId)
+	        .orElseThrow(() -> new ResourceNotFoundException("Job not found with ID: " + jobId));
+
+	    // Create new application
+	    Application application = new Application();
+	    application.setUser(user);
+	    application.setJob(job);
+	    application.setAppliedAt(LocalDateTime.now());
+	    application.setStatus("Pending");
+
+	    // Save and return
+	    return applicationRepository.save(application);
 	}
 
 
