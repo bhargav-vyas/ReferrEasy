@@ -37,8 +37,6 @@ public class ApplicationServiceImpl {
 		
 
 	}
-
-
 	public List<Application> getApplicationByUser( Long userId) {
 		return applicationRepository.findByuserId(userId);
 	}
