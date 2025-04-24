@@ -40,5 +40,9 @@ public class ApplicationServiceImpl {
 	public List<Application> getApplicationByUser( Long userId) {
 		return applicationRepository.findByuserId(userId);
 	}
+	public List<Application> getApplicastionForJob(Long jobId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

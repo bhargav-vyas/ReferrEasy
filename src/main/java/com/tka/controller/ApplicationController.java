@@ -27,7 +27,11 @@ public class ApplicationController {
 	@GetMapping("/user/{userId}")
 	public List<Application> getApplicationByUser(@PathVariable Long userId){
 		return applicationServiceImpl.getApplicationByUser(userId);
-		
+	}
+	
+	@GetMapping("/job/{jobId}")
+	public List<Application> getApplicationForJob(@PathVariable Long jobId){
+		return applicationServiceImpl.getApplicastionForJob(jobId);
 	}
 	
 	
