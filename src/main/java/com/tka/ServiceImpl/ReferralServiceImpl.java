@@ -20,6 +20,9 @@ public class ReferralServiceImpl {
 	public Referral getReferraById(Long id) {
 		return referalrepositopryt.findById(id).orElse(null);
 	}
+	public List<Referral> findReferralsByEmail(String email) {
+		return referalrepositopryt.findReferredEmail(email);
+	}
 	
 	
 }
