@@ -34,7 +34,7 @@ public class Referralcontroller {
 	public Referral getReferralById(@PathVariable Long id) {
 		return referralServiceImpl.getReferraById(id);
 	}
-}
+
 	@GetMapping("/my-referrals")
 	public List<Referral> getMyReferrals(@RequestParam String email){
 		return referralServiceImpl.findReferralsByEmail(email);
