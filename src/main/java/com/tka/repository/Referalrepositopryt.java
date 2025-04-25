@@ -8,7 +8,7 @@ import com.tka.entity.Referral;
 
 public interface Referalrepositopryt extends  JpaRepository<Referral,Long>{
 
-	List<Referral> findReferredEmail(String email);
-	
+	List<Referral> findByReferredEmail(String email);
+
 
 }

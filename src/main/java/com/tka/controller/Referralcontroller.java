@@ -37,7 +37,7 @@ public class Referralcontroller {
 
 	@GetMapping("/my-referrals")
 	public List<Referral> getMyReferrals(@RequestParam String email){
-		return referralServiceImpl.findReferralsByEmail(email);
+		return referralServiceImpl.findByReferralsByEmail(email);
 		
 	}
 }
