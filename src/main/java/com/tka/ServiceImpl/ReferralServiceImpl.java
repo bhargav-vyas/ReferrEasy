@@ -21,7 +21,7 @@ public class ReferralServiceImpl {
 		return referalrepositopryt.findById(id).orElse(null);
 	}
 	public List<Referral> findByReferralsByEmail(String email) {
-		return referalrepositopryt.findByReferralsByEmail(email);
+		return referalrepositopryt.findByEmail(email);
 	}
 	
 	

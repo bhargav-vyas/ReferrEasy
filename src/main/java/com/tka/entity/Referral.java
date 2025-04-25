@@ -29,5 +29,6 @@ public class Referral {
 	private String referredEmail;
 	  private LocalDateTime referredAt;
 	  private String message;
+	    private String email;
 	  
 }
