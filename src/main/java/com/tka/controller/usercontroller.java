@@ -22,7 +22,7 @@ import com.tka.entity.User;
 import com.tka.service.UserService;
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("http://localhost:3000")
 public class usercontroller {
 	@Autowired 
 	private UserServiceImpl userServiceImpl;

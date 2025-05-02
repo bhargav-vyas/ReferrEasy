@@ -19,10 +19,14 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/public/**").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers(
+                    "/api/users/resister",  // Allow registration
+                    "/api/users/login",     // Allow login
+                    "/api/public/**"        // Any other public APIs
+                ).permitAll()
+                .anyRequest().authenticated()  // All other APIs require authentication
             )
-            .httpBasic();
+            .httpBasic(); // You can also use .formLogin() if needed
 
         return http.build();
     }
