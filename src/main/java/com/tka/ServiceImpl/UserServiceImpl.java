@@ -25,16 +25,14 @@ public class UserServiceImpl {
 	
 	}
 	public boolean loginUser(UserDTO userDTO) {
-	    List<User> users = userRepository.findByUsername(userDTO.getUsername());
-
-	    if (users.size() == 1) {
-	        User user = users.get(0);
-	        return user.getPassword().equals(userDTO.getPassword());
+	    // Example logic
+	    User user = userRepository.findByUsername(userDTO.getUsername());
+	    if (user != null && user.getPassword().equals(userDTO.getPassword())) {
+	        return true;
 	    }
-
-	    // Handle case: no user or multiple users with the same username
 	    return false;
 	}
+
 
 	public List<User> getAlluser() {
 		return userRepository.findAll();
